@@ -1,0 +1,18 @@
+{% extends "references/base.html" %}
+
+{% block content %}
+    <article class="media content-section">
+            <div class="article-metadata ">
+                <a class="mr-2" >{{ object.material_name }}</a>
+                <div class="">{{ object.part_number }} </div>
+                <div class="">{{ object.unit_of_measure }} </div>
+                <div class="">{{ object.author }} </div>
+                <div>
+                    {% if object.author == user %}
+                        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'materials-update' object.id %}">Update</a>
+                        {%<a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'material-delete' object.id %}">Delete</a> {% endcomment %}
+                    {% endif %}
+                </div>
+            </div>
+    </article>
+{% endblock content %}

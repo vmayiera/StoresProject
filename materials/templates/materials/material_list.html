@@ -1,0 +1,30 @@
+{% extends "references/base.html" %}
+
+{% block content %}
+    <h3>INTO THE LOOP</h3><hr>
+    <table class="table table-striped table-hover table-sm">
+        <thead>
+            <th>Material Name</th>
+            <th>Part Number</th>
+            <th>Unit of Measure</th>
+            <th>Last Edit</th>
+            <th>Created By</th>
+        </thead>
+
+        <tbody>
+            {% for mtl in items_list %}
+            <tr>
+                <td>{{ mtl.material_name }}</td>
+                <td>
+                    <a href="{% url 'materials-detail' mtl.pk %}">
+                        {{ mtl.part_number }}
+                    </a>
+                </td>
+                <td>{{ mtl.unit_of_measure }}</td>
+                <td>{{ mtl.last_edited_by }}</td>
+                <td>{{ mtl.author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
